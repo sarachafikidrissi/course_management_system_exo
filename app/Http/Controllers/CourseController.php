@@ -92,11 +92,7 @@ class CourseController extends Controller
         $request->validate([
             'course_id' => 'required'
         ]);
-        $array = Auth::user()->userCourses;
-        $course = Course::find($request->course_id);
-        dd($course);
-
-        dd(in_array($course, $array->toArray()));
+      
 
         $user->userCourses()->attach($request->course_id);
        

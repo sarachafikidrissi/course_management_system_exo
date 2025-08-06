@@ -46,10 +46,14 @@
                                                 @csrf
                                                 <input type="text" class="hidden" name="course_id"
                                                     value="{{ $course->id }}">
-                                                {{-- @if (Auth::user()->userCourses->id->exists()) --}}
-                                                        <button
+                                                @if (Auth::user()->userCourses->contains($course->id))
+                                                        <span
+                                                            class="px-6 py-1.5 border border-yellow-500 rounded-md " >already Enrolle</span>
+
+                                                @else
+                                                     <button
                                                             class="px-6 py-1.5 bg-yellow-500 rounded-md " >Enrolle</button>
-                                                {{-- @endif --}}
+                                                @endif
                                             </form>
                                         @endif
 
